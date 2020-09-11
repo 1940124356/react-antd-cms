@@ -1,0 +1,9 @@
+const { createProxyMiddleware } = require('http-proxy-middleware');
+    module.exports = function(app) {
+        app.use(
+            '/api',
+            createProxyMiddleware({
+            target:'http://localhost:9999',    //目标服务器
+            changeOrigin: true
+        })
+    )};
