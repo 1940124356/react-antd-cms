@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { message } from 'antd'
 
-let baseURL = 'http://localhost:8080/api/v1'
+let baseURL = 'http://localhost:8080/api/v1'//开发环境
 
 const instance = axios.create({
     baseURL: baseURL,

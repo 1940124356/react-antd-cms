@@ -3,6 +3,7 @@ import KBSider from './Sider'
 import KBHeader from './Header'
 import KBContent from './Content'
 import { Layout } from 'antd'
+import './style.scss'
 const { Header, Sider, Content } = Layout;
 
 export default class KBLayout extends React.Component {
@@ -10,7 +11,7 @@ export default class KBLayout extends React.Component {
         return (
             <div className='kb-layout'>
                 <Layout>
-                    <Sider>
+                    <Sider width='150'>
                         <KBSider></KBSider>
                     </Sider>
                     <Layout>
