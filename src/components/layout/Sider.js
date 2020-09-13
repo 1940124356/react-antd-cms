@@ -33,7 +33,6 @@ export default class Sider extends React.Component {
             )
             return null
         })
-        console.log(arr)
         return arr
     }
     render(){
