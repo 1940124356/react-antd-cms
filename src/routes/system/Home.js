@@ -17,7 +17,7 @@ function mapStateToProps(store){
     }
 }
 
-//把外部的actions生成器方法，遇到this.props
+//把外部的actions生成器方法，放到this.props
 function mapActionToProps(dispatch) {
     return {
         //调用这个方法来派发一个action
@@ -45,26 +45,39 @@ class Home extends React.Component {
             this.props.add({id:Date.now(),task:e.target.value})
         }
     }
-    changeVal(){
-        console.log('改变')
+    //清空所有
+    clearTodo(){
+        this.props.clear({})
+    }
+    //删除
+    delTodo(id){
+        this.props.del(id)
+    }
+    //更新
+    changeVal(id,e){
+        this.props.upd({
+            id:id,
+            task:e.target.value
+        })
     }
     createTodo(){
         let { list } = this.props
         // let { arr } = this.state
-        return list.map(ele=>(
+        return list.map((ele,idx)=>(
             <div key={ele.id}>
-                <span>{ele.id}</span>
+                <span>{idx}</span>
                 <span>------</span>
-                <input value={ele.task} onChange={this.changeVal.bind(this)} type="text"/>
-                <button>删除</button>
+                <input value={ele.task} onChange={this.changeVal.bind(this,ele.id)} type="text"/>
+                <button onClick={this.delTodo.bind(this,ele.id)}>删除</button>
             </div>
         ))
     }
     render(){
-        console.log(this.props.list)
+        // console.log(this.props.list)
         return(
             <div className="kb-system-home">
                 <h1>首页概况</h1>
+                <button onClick={this.clearTodo.bind(this)}>清空</button>
                 <input onKeyUp={this.addTodo.bind(this)} type="text"/>
                 {this.createTodo()}
             </div>

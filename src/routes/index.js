@@ -28,6 +28,15 @@ const routes = [
             {id:21,text:'商品列表',path:'/goodlist',component:GoodList,icon:<BarsOutlined />},
             {id:22,text:'添加商品',path:'/addgoods',component:AddGood,icon:<DropboxOutlined />}
         ]
+    },
+    {
+        id:3,
+        text:'系统管理',
+        children:[
+            {id:31,text:'角色管理',path:'',component:'',icon:<BarsOutlined />},
+            {id:32,text:'权限管理',path:'',component:'',icon:<DropboxOutlined />},
+            {id:33,text:'用户管理',path:'',component:'',icon:<DropboxOutlined />},
+        ]
     }
 ]
 
